@@ -15,6 +15,10 @@ Color successColor = Color(0XFF31D0AA);
 Color warningColor = Color(0XFFFFB802);
 Color textDefaultColor = Color(0XFF5A5A75);
 Color subTitleColor = Color(0XFF5A5A75);
+Color succelentColor = Color(0XFFFFFAF5);
+Color fernsColor = Color(0XFFF5F7FA);
+Color palmsColor = Color(0XFFF4F9F2);
+Color pothosColor = Color(0XFFF4F9F2);
 
 LinearGradient lilyGradient = LinearGradient(
   colors: [Color(0XFFE5E0DA), Color(0XFFD3CCC4)],

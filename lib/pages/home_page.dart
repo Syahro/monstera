@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:monstera/theme.dart';
 import 'package:monstera/widget/bottom_floating.dart';
+import 'package:monstera/widget/category_card.dart';
 import 'package:monstera/widget/home_card.dart';
 import 'package:monstera/widget/home_cateogry_bullet.dart';
+import 'package:monstera/widget/suggestion_plant.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -42,32 +45,232 @@ class HomePage extends StatelessWidget {
                         SizedBox(
                           height: 16,
                         ),
-                        Container(
-                          width: double.infinity,
-                          height: 52,
-                          decoration: BoxDecoration(
-                            color: accentColor,
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16),
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  'assets/search.png',
-                                  width: 24,
-                                  height: 24,
+                        InkWell(
+                          onTap: () {
+                            return showMaterialModalBottomSheet(
+                              context: context,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(25),
                                 ),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Text(
-                                  'Search plant',
-                                  style: bodyRegularTextStyle.copyWith(
-                                    color: subTitleColor.withOpacity(0.7),
+                              ),
+                              builder: (context) {
+                                return SingleChildScrollView(
+                                  controller: ModalScrollController.of(context),
+                                  child: Container(
+                                    height: 590,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(24),
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: defaultMargin,
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            height: 9,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                height: 4,
+                                                width: 80,
+                                                decoration: BoxDecoration(
+                                                  color: accentDarkColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(2),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 40,
+                                          ),
+                                          Container(
+                                            height: 52,
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color: accentColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(16),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 16),
+                                              child: Row(
+                                                children: [
+                                                  Image.asset(
+                                                    'assets/search.png',
+                                                    width: 24,
+                                                    height: 24,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 8,
+                                                  ),
+                                                  Text(
+                                                    'Search plant',
+                                                    style: bodyRegularTextStyle
+                                                        .copyWith(
+                                                      color: subTitleColor,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 24,
+                                          ),
+                                          Container(
+                                            width: double.infinity,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height -
+                                                (179),
+                                            child: ListView(
+                                              padding: EdgeInsets.only(top: 0),
+                                              children: [
+                                                Text(
+                                                  'Suggestion Plant',
+                                                  style: bodyBoldTextStyle
+                                                      .copyWith(
+                                                    color: darkColor,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 24,
+                                                ),
+                                                SuggestionPlant(
+                                                    'agave.png', 'Agave '),
+                                                SizedBox(
+                                                  height: 24,
+                                                ),
+                                                SuggestionPlant('monstera.png',
+                                                    'Monstera obliqua'),
+                                                SizedBox(
+                                                  height: 24,
+                                                ),
+                                                SuggestionPlant('cactus.png',
+                                                    'Cereus cactus'),
+                                                SizedBox(
+                                                  height: 24,
+                                                ),
+                                                Text(
+                                                  'Categories',
+                                                  style: titleBoldTextStyle
+                                                      .copyWith(
+                                                    color: darkColor,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 16,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    CategoryCard(
+                                                        lilyGradient,
+                                                        'cate1.png',
+                                                        succelentColor,
+                                                        'Succulent'),
+                                                    CategoryCard(
+                                                        calatheaGradient,
+                                                        'cate2.png',
+                                                        fernsColor,
+                                                        'Ferns'),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 16,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    CategoryCard(
+                                                        palmGradient,
+                                                        'cate3.png',
+                                                        palmsColor,
+                                                        'Palms'),
+                                                    CategoryCard(
+                                                        pothosGradient,
+                                                        'cate4.png',
+                                                        pothosColor,
+                                                        'Pothos'),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 16,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    CategoryCard(
+                                                        calatheaGradient,
+                                                        'cate5.png',
+                                                        fernsColor,
+                                                        'Monstera'),
+                                                    CategoryCard(
+                                                        lilyGradient,
+                                                        'cate6.png',
+                                                        succelentColor,
+                                                        'Calathea'),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 24,
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                );
+                              },
+                            );
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            height: 52,
+                            decoration: BoxDecoration(
+                              color: accentColor,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    'assets/search.png',
+                                    width: 24,
+                                    height: 24,
+                                  ),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text(
+                                    'Search plant',
+                                    style: bodyRegularTextStyle.copyWith(
+                                      color: subTitleColor.withOpacity(0.7),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
