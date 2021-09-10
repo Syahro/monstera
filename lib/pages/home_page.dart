@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monstera/theme.dart';
+import 'package:monstera/widget/bottom_floating.dart';
 import 'package:monstera/widget/home_card.dart';
 import 'package:monstera/widget/home_cateogry_bullet.dart';
 
@@ -8,6 +9,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: whiteColor,
+      floatingActionButton: BottomFloating(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
         child: ListView(
           children: [
@@ -50,9 +53,10 @@ class HomePage extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 16),
                             child: Row(
                               children: [
-                                Icon(
-                                  Icons.search,
-                                  color: subTitleColor.withOpacity(0.7),
+                                Image.asset(
+                                  'assets/search.png',
+                                  width: 24,
+                                  height: 24,
                                 ),
                                 SizedBox(
                                   width: 8,
