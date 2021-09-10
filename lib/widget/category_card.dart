@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monstera/pages/category_detail_page.dart';
 
 import '../theme.dart';
 
@@ -16,51 +17,63 @@ class CategoryCard extends StatelessWidget {
   );
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 152,
-      width:
-          ((MediaQuery.of(context).size.width - (2 * defaultMargin)) / 2) - 8,
-      decoration: BoxDecoration(
-        gradient: backgroundGradient,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.centerRight,
-            child: Image.asset(
-              'assets/$imageUrl',
-              width: 124.45,
-              height: 152,
-              fit: BoxFit.cover,
-            ),
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return CategoryDetailPage();
+            },
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              width: double.infinity,
-              height: 42,
-              decoration: BoxDecoration(
-                color: backgroundTitle,
-                borderRadius: BorderRadius.vertical(
-                  bottom: Radius.circular(16),
-                ),
+        );
+      },
+      child: Container(
+        height: 152,
+        width:
+            ((MediaQuery.of(context).size.width - (2 * defaultMargin)) / 2) - 8,
+        decoration: BoxDecoration(
+          gradient: backgroundGradient,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.centerRight,
+              child: Image.asset(
+                'assets/$imageUrl',
+                width: 124.45,
+                height: 152,
+                fit: BoxFit.cover,
               ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 10,
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: double.infinity,
+                height: 42,
+                decoration: BoxDecoration(
+                  color: backgroundTitle,
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(16),
+                  ),
                 ),
-                child: Text(
-                  title,
-                  style: bodyRegularTextStyle.copyWith(
-                    color: darkColor,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 10,
+                  ),
+                  child: Text(
+                    title,
+                    style: bodyRegularTextStyle.copyWith(
+                      color: darkColor,
+                    ),
                   ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
