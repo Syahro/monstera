@@ -16,6 +16,30 @@ Color warningColor = Color(0XFFFFB802);
 Color textDefaultColor = Color(0XFF5A5A75);
 Color subTitleColor = Color(0XFF5A5A75);
 
+LinearGradient lilyGradient = LinearGradient(
+  colors: [Color(0XFFE5E0DA), Color(0XFFD3CCC4)],
+  begin: Alignment.centerLeft,
+  end: Alignment.bottomRight,
+);
+
+LinearGradient calatheaGradient = LinearGradient(
+  colors: [Color(0XFFDAE0E5), Color(0XFFC4C9D3)],
+  begin: Alignment.centerLeft,
+  end: Alignment.bottomRight,
+);
+
+LinearGradient palmGradient = LinearGradient(
+  colors: [Color(0XFFE1E5DA), Color(0XFFCED3C4)],
+  begin: Alignment.centerLeft,
+  end: Alignment.bottomRight,
+);
+
+LinearGradient pothosGradient = LinearGradient(
+  colors: [Color(0XFFE5DADF), Color(0XFFCEBCBF)],
+  begin: Alignment.centerLeft,
+  end: Alignment.bottomRight,
+);
+
 TextStyle headerOneTextStyle = GoogleFonts.workSans(
   fontSize: 31,
   fontWeight: FontWeight.w600,

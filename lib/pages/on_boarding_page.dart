@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monstera/pages/home_page.dart';
 import 'package:monstera/theme.dart';
 
 class OnBoardingpage extends StatelessWidget {
@@ -81,9 +82,21 @@ class OnBoardingpage extends StatelessWidget {
                             color: darkColor,
                           ),
                         ),
-                        Icon(
-                          Icons.arrow_forward,
-                          color: primaryColor,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return HomePage();
+                                },
+                              ),
+                            );
+                          },
+                          child: Icon(
+                            Icons.arrow_forward,
+                            color: primaryColor,
+                          ),
                         ),
                       ],
                     ),
