@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monstera/pages/preview_image.dart';
 import 'package:monstera/theme.dart';
 import 'package:monstera/widget/flower_info.dart';
 import 'package:monstera/widget/preview_card.dart';
@@ -176,7 +177,19 @@ class HouseplantDetailPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            FlowerInfo('leaf.png', 'About'),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return PreviewImage();
+                                    },
+                                  ),
+                                );
+                              },
+                              child: FlowerInfo('leaf.png', 'About'),
+                            ),
                             FlowerInfo('droplet.png', 'How to care'),
                             FlowerInfo('message-circle.png', 'Reviews'),
                             FlowerInfo('heart.png', 'Saved'),
