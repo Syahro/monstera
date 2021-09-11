@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monstera/pages/houseplant_detail_page.dart';
 import 'package:monstera/theme.dart';
 import 'package:monstera/widget/home_cateogry_bullet.dart';
 import 'package:monstera/widget/houseplant_card.dart';
@@ -123,13 +124,25 @@ class HouseplantPage extends StatelessWidget {
                                       SizedBox(
                                         height: 16,
                                       ),
-                                      HouseplantCard(
-                                        imageUrl: 'cate12.png',
-                                        category: 'Houseplant',
-                                        name: 'Fiddle leaf fig\nplant',
-                                        price: '150.000',
-                                        backgroundImage: palmGradient,
-                                        isSize: 'Medium',
+                                      InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) {
+                                                return HouseplantDetailPage();
+                                              },
+                                            ),
+                                          );
+                                        },
+                                        child: HouseplantCard(
+                                          imageUrl: 'cate12.png',
+                                          category: 'Houseplant',
+                                          name: 'Fiddle leaf fig\nplant',
+                                          price: '150.000',
+                                          backgroundImage: palmGradient,
+                                          isSize: 'Medium',
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 16,
